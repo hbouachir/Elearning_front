@@ -1,0 +1,26 @@
+<h1>La liste des niveaux</h1>
+<div class="container">
+
+  <div class="table">
+    <div class="table-header">
+      <div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">Num</a></div>
+      <div class="header__item"><a id="name" class="filter__link" href="#">Name</a></div>
+      <div class="header__item"><a id="action" class="filter__link" href="#">Actions</a></div>
+
+    </div>
+    <div class="table-content">
+
+      <div class="table-row" *ngFor="let n of ELEMENT_DATA">
+
+        <div c class="table-data">{{n.id}}</div>
+
+        <div class="table-data">{{n.titre}}</div>
+        <div>
+          <button (click)="deleteNiveau(n.id)">X</button>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

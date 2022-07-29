@@ -1,0 +1,72 @@
+<h3>Add Offer</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label >Niveau</label><br/>
+      <select [(ngModel)]="ex.niveau" name="niveau" >
+        <option *ngFor="let n of niveau" [ngValue]="n"  [selected]="true"
+
+        >{{n.titre}} </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label >Trimestre</label><br/>
+      <select [(ngModel)]="ex.trimestre" name="trimestre">
+        <option *ngFor="let t of trimestres" [ngValue]="t" [selected]="true">{{t.titre}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label >Champ</label><br/>
+      <select [(ngModel)]="ex.champ" name="champ" (change)="SelectChamp($event)" >
+        <option *ngFor="let t of champs" [ngValue]="t" >{{t.titre}}</option>
+      </select>
+    </div>
+
+
+    <div class="form-group" *ngIf="cacher">
+      <label >Sous CHamp</label><br/>
+      <select [(ngModel)]="ex.champ.sousChamps" name="souschamp"  >
+        <option *ngFor="let t of sousChamp" [ngValue]="t" >{{t.titre}}</option>
+      </select>
+    </div>
+
+
+    <div class="form-group">
+      <label >Chapitre</label><br/>
+      <select [(ngModel)]="ex.chapitre" name="chapitre">
+        <option *ngFor="let t of chapitres" [ngValue]="t" [selected]="true">{{t.titre}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label >Difficulte</label><br/>
+      <select [(ngModel)]="ex.difficulte" name="chapitre">
+        <option *ngFor="let t of difficultes" [ngValue]="t" [selected]="true">{{t.titre}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label >Start Date</label>
+      <input type="date" class="form-control" id="startdate" required  name="startdate">
+    </div>
+
+    <div class="form-group">
+      <label >End Date</label>
+      <input type="date" class="form-control"  required name="enddate" >
+    </div>
+    <div class="form-group">
+      <label >Type Contract</label>
+      <input type="text" class="form-control"   required  name="typecontract" >
+    </div>
+
+
+    <button type="submit" class="btn btn-success">POST</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>Offer Posted successfully!</h4>
+
+</div>
